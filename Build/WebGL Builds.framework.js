@@ -1993,13 +1993,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  4055424: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 4055485: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 4055549: function() {return Module.webglContextAttributes.powerPreference;},  
- 4055607: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 4055662: function($0) {performance.now = function() { return $0; };},  
+  4055472: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 4055533: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 4055597: function() {return Module.webglContextAttributes.powerPreference;},  
+ 4055655: function() {Module['emscripten_get_now_backup'] = performance.now;},  
  4055710: function($0) {performance.now = function() { return $0; };},  
- 4055758: function() {performance.now = Module['emscripten_get_now_backup'];}
+ 4055758: function($0) {performance.now = function() { return $0; };},  
+ 4055806: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -2156,6 +2156,10 @@ var ASM_CONSTS = {
         HEAPF64[usedJSptr >> 3] = NaN;
       }
     }
+
+  function _IsMobile(){
+  		return Module.SystemInfo.mobile
+  	}
 
   var JS_Accelerometer = null;
   
@@ -15914,6 +15918,7 @@ function checkIncomingModuleAPI() {
 }
 var asmLibraryArg = {
   "GetJSMemoryInfo": _GetJSMemoryInfo,
+  "IsMobile": _IsMobile,
   "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
   "JS_Accelerometer_Start": _JS_Accelerometer_Start,
   "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
